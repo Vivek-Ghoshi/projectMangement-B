@@ -13,7 +13,7 @@ const taskRoutes = require('./routes/taskRoutes');
 
 app.use(cors());
 const allowedOrigins = [
-    'https://projectmanage-f.onrender.com',
+    'https://projectmanage-f.onrender.com/',
   ];
   
   app.use(cors({
@@ -28,7 +28,7 @@ const allowedOrigins = [
   }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors({ origin: 'https://projectmanage-f.onrender.com' }));
+app.use(cors({ origin: 'https://projectmanage-f.onrender.com/' }));
 app.use('/api/auth',authRoutes);
 app.use('/api/projects',projectRoutes);
 app.use('/api/tasks',taskRoutes);
