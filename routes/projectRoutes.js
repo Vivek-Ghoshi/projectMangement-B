@@ -6,10 +6,10 @@ const userModel = require("../models/userModel");
 
 router.post('/create',async function(req,res){
      try {
-        let assignTo = {_id:'6762ee5b65828788a9a84f91'}
+        let assignTo = {_id:'6762f85f3ea8bc566d3b15c2'}
         const project = await projectModel.create({
-             title:'ui/ux ',
-               description: 'make a figma website',
+             title:'make website',
+               description: 'code the website',
                assignTo,
                status:'Pending',
                tasks:[
@@ -30,11 +30,11 @@ router.post('/create',async function(req,res){
                    status:'Pending',  
                },
                {
-                   title: 'gather images',
+                   title: 'deploy it',
                    status:'Pending',  
                },
                {
-                   title: 'make png',
+                   title: 'recheck it',
                    status:'Pending',  
                }],
                deadline: '24 dec',
