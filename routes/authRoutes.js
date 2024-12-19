@@ -76,7 +76,7 @@ router.get('/:id/progress', async (req, res) => {
         tasksCompleted,
         projects: candidate.projects,
         overallProgress: Math.round(averageCompletionRate),
-       performanceScore: Math.round(performanceScore),  // Rounded to 2 decimal places
+       performanceScore: Math.round(performanceScore),  
     });
   } catch (error) {
       console.log(error)

@@ -87,4 +87,23 @@ router.get('/accept/:id',async function(req,res){
     }
 });
 
+router.get('/:id/progress',async function(req,res){
+     try {
+        const projectId = req.params.id;
+        const project = await projectModel.findOne({_id:projectId});
+        if(!project) return res.send('project not found');
+        const tasks = project.tasks.length;
+        const completedTasks = project.tasks.filter(task => task.status === 'Completed').length;
+        const progress = Math.round((completedTasks / tasks)*100);
+        const updatedProject = await projectModel.findOneAndUpdate(
+            {_id: projectId},
+            { $set:{ progress: progress }},
+            {new: true}
+           );
+        return(updatedProject);
+     } catch (error) {
+        console.log('from projects progress route',error.message)
+     }
+})
+
 module.exports = router;
